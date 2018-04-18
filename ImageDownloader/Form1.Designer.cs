@@ -28,13 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.BingGB = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.BingGB.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Location = new System.Drawing.Point(0, -1);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.BingGB);
+            this.splitContainer1.Size = new System.Drawing.Size(1402, 565);
+            this.splitContainer1.SplitterDistance = 699;
+            this.splitContainer1.TabIndex = 1;
+            // 
+            // BingGB
+            // 
+            this.BingGB.Controls.Add(this.label1);
+            this.BingGB.Location = new System.Drawing.Point(0, 59);
+            this.BingGB.Name = "BingGB";
+            this.BingGB.Size = new System.Drawing.Size(696, 506);
+            this.BingGB.TabIndex = 0;
+            this.BingGB.TabStop = false;
+            this.BingGB.Text = "Bing Wallpapers";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(89, 128);
+            this.label1.Location = new System.Drawing.Point(3, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -44,18 +72,24 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1400, 563);
+            this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "Image Downloader";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.BingGB.ResumeLayout(false);
+            this.BingGB.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox BingGB;
         private System.Windows.Forms.Label label1;
     }
 }

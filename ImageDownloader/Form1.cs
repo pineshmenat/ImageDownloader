@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,7 +22,15 @@ namespace ImageDownloader
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            label1.Text = client.GetData(46545);
+            try
+            {
+                //label1.Text = client.saveTodaysBingWallpaper().ToString();
+                label1.Text = client.downloadInstagramImage("https://p/BhIq1Xrjc2G/").ToString();
+            }
+            catch (FaultException<ImageDownloadServiceReference.InvalidUrlFault> obj)
+            {
+                label1.Text = obj.Detail.Error + " " + obj.Detail.Details;
+            }
         }
     }
 }

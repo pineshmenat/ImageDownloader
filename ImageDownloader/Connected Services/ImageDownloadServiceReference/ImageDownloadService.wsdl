@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:9088/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:9088/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:9088/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IImageDownloadService_GetData_InputMessage">
@@ -12,10 +13,34 @@
   <wsdl:message name="IImageDownloadService_GetData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IImageDownloadService_saveTodaysBingWallpaper_InputMessage">
+    <wsdl:part name="parameters" element="tns:saveTodaysBingWallpaper" />
+  </wsdl:message>
+  <wsdl:message name="IImageDownloadService_saveTodaysBingWallpaper_OutputMessage">
+    <wsdl:part name="parameters" element="tns:saveTodaysBingWallpaperResponse" />
+  </wsdl:message>
+  <wsdl:message name="IImageDownloadService_downloadInstagramImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:downloadInstagramImage" />
+  </wsdl:message>
+  <wsdl:message name="IImageDownloadService_downloadInstagramImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:downloadInstagramImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IImageDownloadService_downloadInstagramImage_InvalidUrlFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary" name="detail" element="q1:InvalidUrlFault" />
+  </wsdl:message>
   <wsdl:portType name="IImageDownloadService">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IImageDownloadService/GetData" message="tns:IImageDownloadService_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IImageDownloadService/GetDataResponse" message="tns:IImageDownloadService_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="saveTodaysBingWallpaper">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaper" message="tns:IImageDownloadService_saveTodaysBingWallpaper_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaperResponse" message="tns:IImageDownloadService_saveTodaysBingWallpaper_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadInstagramImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageDownloadService/downloadInstagramImage" message="tns:IImageDownloadService_downloadInstagramImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageDownloadService/downloadInstagramImageResponse" message="tns:IImageDownloadService_downloadInstagramImage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IImageDownloadService/downloadInstagramImageInvalidUrlFaultFault" name="InvalidUrlFaultFault" message="tns:IImageDownloadService_downloadInstagramImage_InvalidUrlFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IImageDownloadService" type="tns:IImageDownloadService">
@@ -28,6 +53,27 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveTodaysBingWallpaper">
+      <soap:operation soapAction="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaper" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadInstagramImage">
+      <soap:operation soapAction="http://tempuri.org/IImageDownloadService/downloadInstagramImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidUrlFaultFault">
+        <soap:fault use="literal" name="InvalidUrlFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ImageDownloadService">

@@ -9,7 +9,70 @@
 //------------------------------------------------------------------------------
 
 namespace ImageDownloader.ImageDownloadServiceReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InvalidUrlFault", Namespace="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary")]
+    [System.SerializableAttribute()]
+    public partial class InvalidUrlFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Details {
+            get {
+                return this.DetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
+                    this.DetailsField = value;
+                    this.RaisePropertyChanged("Details");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Error {
+            get {
+                return this.ErrorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorField, value) != true)) {
+                    this.ErrorField = value;
+                    this.RaisePropertyChanged("Error");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ImageDownloadServiceReference.IImageDownloadService")]
@@ -20,6 +83,20 @@ namespace ImageDownloader.ImageDownloadServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/GetData", ReplyAction="http://tempuri.org/IImageDownloadService/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaper", ReplyAction="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaperResponse")]
+        bool saveTodaysBingWallpaper();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaper", ReplyAction="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaperResponse")]
+        System.Threading.Tasks.Task<bool> saveTodaysBingWallpaperAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/downloadInstagramImage", ReplyAction="http://tempuri.org/IImageDownloadService/downloadInstagramImageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ImageDownloader.ImageDownloadServiceReference.InvalidUrlFault), Action="http://tempuri.org/IImageDownloadService/downloadInstagramImageInvalidUrlFaultFau" +
+            "lt", Name="InvalidUrlFault", Namespace="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary")]
+        bool downloadInstagramImage(string url);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/downloadInstagramImage", ReplyAction="http://tempuri.org/IImageDownloadService/downloadInstagramImageResponse")]
+        System.Threading.Tasks.Task<bool> downloadInstagramImageAsync(string url);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +132,22 @@ namespace ImageDownloader.ImageDownloadServiceReference {
         
         public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
             return base.Channel.GetDataAsync(value);
+        }
+        
+        public bool saveTodaysBingWallpaper() {
+            return base.Channel.saveTodaysBingWallpaper();
+        }
+        
+        public System.Threading.Tasks.Task<bool> saveTodaysBingWallpaperAsync() {
+            return base.Channel.saveTodaysBingWallpaperAsync();
+        }
+        
+        public bool downloadInstagramImage(string url) {
+            return base.Channel.downloadInstagramImage(url);
+        }
+        
+        public System.Threading.Tasks.Task<bool> downloadInstagramImageAsync(string url) {
+            return base.Channel.downloadInstagramImageAsync(url);
         }
     }
 }
