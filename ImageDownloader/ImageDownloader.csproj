@@ -72,6 +72,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\ImageDownloadServiceReference\ImageDownloader.ImageDownloadServiceReference.Image.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ImageDownloadServiceReference\ImageDownloadService.wsdl" />
     <None Include="Connected Services\ImageDownloadServiceReference\item.xsd">
       <SubType>Designer</SubType>

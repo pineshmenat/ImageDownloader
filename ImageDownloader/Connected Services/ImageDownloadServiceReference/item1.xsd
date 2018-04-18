@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:9088/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary" />
   <xs:element name="GetData">
     <xs:complexType>
       <xs:sequence>
@@ -23,6 +24,30 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="saveTodaysBingWallpaperResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBingWallpapers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBingWallpapersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary" minOccurs="0" name="getBingWallpapersResult" nillable="true" type="q1:ArrayOfImage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInstagramImages">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getInstagramImagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary" minOccurs="0" name="getInstagramImagesResult" nillable="true" type="q2:ArrayOfImage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

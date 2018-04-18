@@ -19,6 +19,18 @@
   <wsdl:message name="IImageDownloadService_saveTodaysBingWallpaper_OutputMessage">
     <wsdl:part name="parameters" element="tns:saveTodaysBingWallpaperResponse" />
   </wsdl:message>
+  <wsdl:message name="IImageDownloadService_getBingWallpapers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBingWallpapers" />
+  </wsdl:message>
+  <wsdl:message name="IImageDownloadService_getBingWallpapers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBingWallpapersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IImageDownloadService_getInstagramImages_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInstagramImages" />
+  </wsdl:message>
+  <wsdl:message name="IImageDownloadService_getInstagramImages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInstagramImagesResponse" />
+  </wsdl:message>
   <wsdl:message name="IImageDownloadService_downloadInstagramImage_InputMessage">
     <wsdl:part name="parameters" element="tns:downloadInstagramImage" />
   </wsdl:message>
@@ -36,6 +48,14 @@
     <wsdl:operation name="saveTodaysBingWallpaper">
       <wsdl:input wsaw:Action="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaper" message="tns:IImageDownloadService_saveTodaysBingWallpaper_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaperResponse" message="tns:IImageDownloadService_saveTodaysBingWallpaper_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBingWallpapers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageDownloadService/getBingWallpapers" message="tns:IImageDownloadService_getBingWallpapers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageDownloadService/getBingWallpapersResponse" message="tns:IImageDownloadService_getBingWallpapers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInstagramImages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IImageDownloadService/getInstagramImages" message="tns:IImageDownloadService_getInstagramImages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IImageDownloadService/getInstagramImagesResponse" message="tns:IImageDownloadService_getInstagramImages_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="downloadInstagramImage">
       <wsdl:input wsaw:Action="http://tempuri.org/IImageDownloadService/downloadInstagramImage" message="tns:IImageDownloadService_downloadInstagramImage_InputMessage" />
@@ -56,6 +76,24 @@
     </wsdl:operation>
     <wsdl:operation name="saveTodaysBingWallpaper">
       <soap:operation soapAction="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaper" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBingWallpapers">
+      <soap:operation soapAction="http://tempuri.org/IImageDownloadService/getBingWallpapers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInstagramImages">
+      <soap:operation soapAction="http://tempuri.org/IImageDownloadService/getInstagramImages" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

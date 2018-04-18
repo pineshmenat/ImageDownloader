@@ -15,6 +15,115 @@ namespace ImageDownloader.ImageDownloadServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Image", Namespace="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary")]
+    [System.SerializableAttribute()]
+    public partial class Image : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime created_dateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] imageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int image_idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string image_nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sourceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime created_date {
+            get {
+                return this.created_dateField;
+            }
+            set {
+                if ((this.created_dateField.Equals(value) != true)) {
+                    this.created_dateField = value;
+                    this.RaisePropertyChanged("created_date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] image {
+            get {
+                return this.imageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.imageField, value) != true)) {
+                    this.imageField = value;
+                    this.RaisePropertyChanged("image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int image_id {
+            get {
+                return this.image_idField;
+            }
+            set {
+                if ((this.image_idField.Equals(value) != true)) {
+                    this.image_idField = value;
+                    this.RaisePropertyChanged("image_id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string image_name {
+            get {
+                return this.image_nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.image_nameField, value) != true)) {
+                    this.image_nameField = value;
+                    this.RaisePropertyChanged("image_name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string source {
+            get {
+                return this.sourceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sourceField, value) != true)) {
+                    this.sourceField = value;
+                    this.RaisePropertyChanged("source");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="InvalidUrlFault", Namespace="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary")]
     [System.SerializableAttribute()]
     public partial class InvalidUrlFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -90,6 +199,18 @@ namespace ImageDownloader.ImageDownloadServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaper", ReplyAction="http://tempuri.org/IImageDownloadService/saveTodaysBingWallpaperResponse")]
         System.Threading.Tasks.Task<bool> saveTodaysBingWallpaperAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/getBingWallpapers", ReplyAction="http://tempuri.org/IImageDownloadService/getBingWallpapersResponse")]
+        ImageDownloader.ImageDownloadServiceReference.Image[] getBingWallpapers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/getBingWallpapers", ReplyAction="http://tempuri.org/IImageDownloadService/getBingWallpapersResponse")]
+        System.Threading.Tasks.Task<ImageDownloader.ImageDownloadServiceReference.Image[]> getBingWallpapersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/getInstagramImages", ReplyAction="http://tempuri.org/IImageDownloadService/getInstagramImagesResponse")]
+        ImageDownloader.ImageDownloadServiceReference.Image[] getInstagramImages();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/getInstagramImages", ReplyAction="http://tempuri.org/IImageDownloadService/getInstagramImagesResponse")]
+        System.Threading.Tasks.Task<ImageDownloader.ImageDownloadServiceReference.Image[]> getInstagramImagesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IImageDownloadService/downloadInstagramImage", ReplyAction="http://tempuri.org/IImageDownloadService/downloadInstagramImageResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(ImageDownloader.ImageDownloadServiceReference.InvalidUrlFault), Action="http://tempuri.org/IImageDownloadService/downloadInstagramImageInvalidUrlFaultFau" +
             "lt", Name="InvalidUrlFault", Namespace="http://schemas.datacontract.org/2004/07/ImageDownloadServiceLibrary")]
@@ -140,6 +261,22 @@ namespace ImageDownloader.ImageDownloadServiceReference {
         
         public System.Threading.Tasks.Task<bool> saveTodaysBingWallpaperAsync() {
             return base.Channel.saveTodaysBingWallpaperAsync();
+        }
+        
+        public ImageDownloader.ImageDownloadServiceReference.Image[] getBingWallpapers() {
+            return base.Channel.getBingWallpapers();
+        }
+        
+        public System.Threading.Tasks.Task<ImageDownloader.ImageDownloadServiceReference.Image[]> getBingWallpapersAsync() {
+            return base.Channel.getBingWallpapersAsync();
+        }
+        
+        public ImageDownloader.ImageDownloadServiceReference.Image[] getInstagramImages() {
+            return base.Channel.getInstagramImages();
+        }
+        
+        public System.Threading.Tasks.Task<ImageDownloader.ImageDownloadServiceReference.Image[]> getInstagramImagesAsync() {
+            return base.Channel.getInstagramImagesAsync();
         }
         
         public bool downloadInstagramImage(string url) {
