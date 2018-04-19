@@ -32,7 +32,7 @@ namespace ImageDownloader
             if (File.Exists(fileName))
             {
                 StringBuilder s = new StringBuilder(fileName);
-                result = SystemParametersInfo(UAction.SPI_SETDESKWALLPAPER, 0, s, 0x2);
+                result = SystemParametersInfo(UAction.SPI_SETDESKWALLPAPER, 0, s, 0x001);
             }
             return result;
         }

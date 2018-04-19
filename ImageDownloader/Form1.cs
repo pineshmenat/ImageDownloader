@@ -26,14 +26,14 @@ namespace ImageDownloader
             try
             {
                 //BhYBtFuDudT BhQ9rNSjy-8 BhNwLkCDGLw BhI7-KgjTNt Bhjh1oUjVmC
-                //label1.Text = client.saveTodaysBingWallpaper().ToString();
-                //label1.Text = client.downloadInstagramImage("https://www.instagram.com/p/Bhjh1oUjVmC/").ToString();
+                bool status = client.saveTodaysBingWallpaper();
+                status = client.downloadInstagramImage("https://www.instagram.com/p/Bhjh1oUjVmC/");
 
                 List<ImageDownloadServiceReference.Image> bingWallpapers = client.getInstagramImages().ToList<ImageDownloadServiceReference.Image>();
 
-                System.IO.Stream stream = new MemoryStream(bingWallpapers[4].image);
+                System.IO.Stream stream = new MemoryStream(bingWallpapers[0].image);
                 Bitmap bmp = new Bitmap(stream);
-                bmp.Save(bingWallpapers[4].image_name);
+                bmp.Save(bingWallpapers[0].image_name);
                 //pictureBox1.Size = new Size(200, 200);
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Image = new Bitmap(stream);
@@ -43,7 +43,7 @@ namespace ImageDownloader
             }
             catch (FaultException<ImageDownloadServiceReference.InvalidUrlFault> obj)
             {
-                label1.Text = obj.Detail.Error + " " + obj.Detail.Details;
+                String error= obj.Detail.Error + " " + obj.Detail.Details;
             }
         }
 
@@ -174,8 +174,18 @@ namespace ImageDownloader
 
         private void buttonSetAsWallpaper_Click(object sender, EventArgs e)
         {
-            String imageFile = "wallpaper.jpg";
-            pictureBox1.Image.Save(imageFile);
+            String userPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            String picturesPath = userPath + "\\Pictures";
+            String imageFile = "";
+            if (System.IO.Directory.Exists(picturesPath))
+            {
+                imageFile = picturesPath + "\\wallpaper.jpg";
+                pictureBox1.Image.Save(imageFile);
+            } else
+            {
+                imageFile = userPath + "\\wallpaper.jpg";
+                pictureBox1.Image.Save(imageFile);
+            }
             if (Wallpaper.SetBackgroud(imageFile) >= 1)
             {
                 //lbl_Info.Text = "Bingo, Wallpaper Set!!\n";
