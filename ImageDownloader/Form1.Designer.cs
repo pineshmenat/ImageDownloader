@@ -28,82 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.BingGB = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.BingGB.SuspendLayout();
+            this.tabControlImages = new System.Windows.Forms.TabControl();
+            this.tabPageInstagram = new System.Windows.Forms.TabPage();
+            this.tabPageBing = new System.Windows.Forms.TabPage();
+            this.buttonSetAsWallpaper = new System.Windows.Forms.Button();
+            this.buttonSaveInstagram = new System.Windows.Forms.Button();
+            this.textBoxInstagramUrl = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabControlImages.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Location = new System.Drawing.Point(0, -1);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.BingGB);
-            this.splitContainer1.Size = new System.Drawing.Size(1402, 565);
-            this.splitContainer1.SplitterDistance = 699;
-            this.splitContainer1.TabIndex = 1;
-            // 
-            // BingGB
-            // 
-            this.BingGB.Controls.Add(this.pictureBox1);
-            this.BingGB.Location = new System.Drawing.Point(0, 59);
-            this.BingGB.Name = "BingGB";
-            this.BingGB.Size = new System.Drawing.Size(696, 506);
-            this.BingGB.TabIndex = 0;
-            this.BingGB.TabStop = false;
-            this.BingGB.Text = "Bing Wallpapers";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(744, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(774, 117);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 170);
-            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.Size = new System.Drawing.Size(684, 473);
+            this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // tabControlImages
+            // 
+            this.tabControlImages.Controls.Add(this.tabPageInstagram);
+            this.tabControlImages.Controls.Add(this.tabPageBing);
+            this.tabControlImages.Location = new System.Drawing.Point(21, 32);
+            this.tabControlImages.Name = "tabControlImages";
+            this.tabControlImages.SelectedIndex = 0;
+            this.tabControlImages.Size = new System.Drawing.Size(731, 650);
+            this.tabControlImages.TabIndex = 2;
+            // 
+            // tabPageInstagram
+            // 
+            this.tabPageInstagram.AutoScroll = true;
+            this.tabPageInstagram.Location = new System.Drawing.Point(4, 25);
+            this.tabPageInstagram.Name = "tabPageInstagram";
+            this.tabPageInstagram.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageInstagram.Size = new System.Drawing.Size(723, 621);
+            this.tabPageInstagram.TabIndex = 0;
+            this.tabPageInstagram.Text = "Instagram";
+            this.tabPageInstagram.UseVisualStyleBackColor = true;
+            // 
+            // tabPageBing
+            // 
+            this.tabPageBing.AutoScroll = true;
+            this.tabPageBing.Location = new System.Drawing.Point(4, 25);
+            this.tabPageBing.Name = "tabPageBing";
+            this.tabPageBing.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBing.Size = new System.Drawing.Size(723, 621);
+            this.tabPageBing.TabIndex = 1;
+            this.tabPageBing.Text = "Bing";
+            this.tabPageBing.UseVisualStyleBackColor = true;
+            // 
+            // buttonSetAsWallpaper
+            // 
+            this.buttonSetAsWallpaper.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSetAsWallpaper.Location = new System.Drawing.Point(774, 609);
+            this.buttonSetAsWallpaper.Name = "buttonSetAsWallpaper";
+            this.buttonSetAsWallpaper.Size = new System.Drawing.Size(684, 69);
+            this.buttonSetAsWallpaper.TabIndex = 3;
+            this.buttonSetAsWallpaper.Text = "Set as wallpaper";
+            this.buttonSetAsWallpaper.UseVisualStyleBackColor = true;
+            this.buttonSetAsWallpaper.Click += new System.EventHandler(this.buttonSetAsWallpaper_Click);
+            // 
+            // buttonSaveInstagram
+            // 
+            this.buttonSaveInstagram.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSaveInstagram.Location = new System.Drawing.Point(1348, 62);
+            this.buttonSaveInstagram.Name = "buttonSaveInstagram";
+            this.buttonSaveInstagram.Size = new System.Drawing.Size(110, 24);
+            this.buttonSaveInstagram.TabIndex = 4;
+            this.buttonSaveInstagram.Text = "Save";
+            this.buttonSaveInstagram.UseVisualStyleBackColor = true;
+            this.buttonSaveInstagram.Click += new System.EventHandler(this.buttonSaveInstagram_Click);
+            // 
+            // textBoxInstagramUrl
+            // 
+            this.textBoxInstagramUrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.textBoxInstagramUrl.Location = new System.Drawing.Point(899, 62);
+            this.textBoxInstagramUrl.Name = "textBoxInstagramUrl";
+            this.textBoxInstagramUrl.Size = new System.Drawing.Size(434, 24);
+            this.textBoxInstagramUrl.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(769, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 18);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Instagram URL:";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 563);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(1489, 703);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxInstagramUrl);
+            this.Controls.Add(this.buttonSaveInstagram);
+            this.Controls.Add(this.buttonSetAsWallpaper);
+            this.Controls.Add(this.tabControlImages);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Image Downloader";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.BingGB.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabControlImages.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox BingGB;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabControl tabControlImages;
+        private System.Windows.Forms.TabPage tabPageInstagram;
+        private System.Windows.Forms.TabPage tabPageBing;
+        private System.Windows.Forms.Button buttonSetAsWallpaper;
+        private System.Windows.Forms.Button buttonSaveInstagram;
+        private System.Windows.Forms.TextBox textBoxInstagramUrl;
+        private System.Windows.Forms.Label label2;
     }
 }
 
