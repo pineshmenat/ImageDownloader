@@ -20,14 +20,14 @@ namespace ImageDownloader
             InitializeComponent();
             client = new ImageDownloadServiceReference.ImageDownloadServiceClient("BasicHttpBinding_IImageDownloadService");
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
                 //BhYBtFuDudT BhQ9rNSjy-8 BhNwLkCDGLw BhI7-KgjTNt Bhjh1oUjVmC
                 bool status = client.saveTodaysBingWallpaper();
-                status = client.downloadInstagramImage("https://www.instagram.com/p/Bhjh1oUjVmC/");
+                //status = client.downloadInstagramImage("https://www.instagram.com/p/Bhjh1oUjVmC/");
 
                 List<ImageDownloadServiceReference.Image> bingWallpapers = client.getInstagramImages().ToList<ImageDownloadServiceReference.Image>();
 
@@ -43,7 +43,7 @@ namespace ImageDownloader
             }
             catch (FaultException<ImageDownloadServiceReference.InvalidUrlFault> obj)
             {
-                String error= obj.Detail.Error + " " + obj.Detail.Details;
+                String error = obj.Detail.Error + " " + obj.Detail.Details;
             }
         }
 
@@ -181,31 +181,39 @@ namespace ImageDownloader
             {
                 imageFile = picturesPath + "\\wallpaper.jpg";
                 pictureBox1.Image.Save(imageFile);
-            } else
+            }
+            else
             {
                 imageFile = userPath + "\\wallpaper.jpg";
                 pictureBox1.Image.Save(imageFile);
             }
             if (Wallpaper.SetBackgroud(imageFile) >= 1)
-            {
-                //lbl_Info.Text = "Bingo, Wallpaper Set!!\n";
-            }
+                MessageBox.Show("Your Wallpaper is set!", "Wallpaper", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-            {
-                //lbl_Info.Text = "Error Setting Wallpaper!!";
-            }
+                MessageBox.Show("Error Setting Wallpaper!", "Wallpaper", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (File.Exists(imageFile))
+                File.Delete(imageFile);
         }
 
         private void buttonSaveInstagram_Click(object sender, EventArgs e)
         {
-            if(client.downloadInstagramImage(textBoxInstagramUrl.Text))
+            try
             {
-                textBoxInstagramUrl.Text = "";
-                MessageBox.Show("Your Instagram image is saved to database!", "Instagram", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                setGalleryWithImages();
+                if (client.downloadInstagramImage(textBoxInstagramUrl.Text))
+                {
+                    textBoxInstagramUrl.Text = "";
+                    MessageBox.Show("Your Instagram image is saved to database!", "Instagram", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    setGalleryWithImages();
+                }
+                else
+                    MessageBox.Show("Instagram image not saved!", "Instagram", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-            else
-                MessageBox.Show("Instagram image not saved!", "Instagram", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (FaultException<ImageDownloadServiceReference.InvalidUrlFault> obj)
+            {
+                String error = obj.Detail.Error + " " + obj.Detail.Details;
+                MessageBox.Show(error, "Instagram", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }
